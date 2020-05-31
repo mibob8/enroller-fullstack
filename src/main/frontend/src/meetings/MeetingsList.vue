@@ -2,7 +2,9 @@
   <table v-if="meetings.length > 0">
     <thead>
     <tr>
+      <th>ID</th>
       <th>Nazwa spotkania</th>
+      <th>Data</th>
       <th>Opis</th>
       <th>Uczestnicy</th>
       <td></td>
