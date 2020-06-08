@@ -26,8 +26,8 @@ public class MeetingService {
 
     public Meeting addMeeting(Meeting meeting){
         connector.getSession().save(meeting);
+        transaction = connector.getSession().beginTransaction();
         transaction.commit();
-        transaction.
         return meeting;
     }
 
@@ -38,6 +38,7 @@ public class MeetingService {
 
     public void deleteMeeting(Meeting meeting){
         connector.getSession().delete(meeting);
+        transaction = connector.getSession().beginTransaction();
         transaction.commit();
     }
 }

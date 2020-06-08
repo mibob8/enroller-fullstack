@@ -30,9 +30,12 @@
             };
         },
         mounted() {
-            this.$http.get('meetings').then(response => {
-                this.meetings = response.body;
-            });
+            this.$http.get('meetings')
+                .then(response => {
+                    this.meetings.push(...response.body);
+                    alert('testowy alert');
+                })
+                .catch(response => alert('Błąd przy pobieraniu listy spotkań. Kod odpowiedzi: ' + response.status));
         },
         methods: {
             addNewMeeting(meeting) {

@@ -28,7 +28,7 @@ public class MeetingRestController
         return new ResponseEntity<Collection<Meeting>>(meetings, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/removeMeeting/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<?> removeMeeting(@PathVariable("id") long id)
     {
         Meeting meeting = meetingService.findById(id);
@@ -52,7 +52,7 @@ public class MeetingRestController
         }
 
         meetingService.addMeeting(meeting);
-        return new ResponseEntity<Meeting>(meeting, HttpStatus.OK);
+        return new ResponseEntity<Meeting>(meeting, HttpStatus.CREATED);
     }
 
     @RequestMapping(value = "/addParticipant/{id}", method = RequestMethod.POST)
